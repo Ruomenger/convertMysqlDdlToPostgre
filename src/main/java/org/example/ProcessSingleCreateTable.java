@@ -115,7 +115,7 @@ public class ProcessSingleCreateTable {
 
             // 类型
             String dataType = columnDefinition.getColDataType().getDataType();
-            String postgreDataType = DataTypeMapping.MYSQL_TYPE_TO_POSTGRE_TYPE.get(dataType);
+            String postgreDataType = DataTypeMapping.MYSQL_TYPE_TO_POSTGRE_TYPE.get(dataType.toLowerCase());
             if (postgreDataType == null) {
                 System.out.println(columnDefinition.getColDataType().getArgumentsStringList());
                 throw new UnsupportedOperationException("mysql dataType not supported yet. " + dataType);

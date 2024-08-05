@@ -13,12 +13,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.util.Map;
-import java.util.Properties;
 
-/**
- * Hello world!
- */
 public class App {
 
     public static void main(String[] args) throws JSQLParserException, IOException {
@@ -45,10 +40,11 @@ public class App {
         }
 
         File destFile = new File(System.getProperty("user.dir"), "target.sql");
+
+        FileUtils.writeStringToFile(destFile,"-- noinspection SqlNoDataSourceInspectionForFile",StandardCharsets.UTF_8);
         FileUtils.writeStringToFile(destFile,totalSql.toString(),StandardCharsets.UTF_8);
         System.out.println(totalSql);
         System.out.println("file saved to :" + destFile.getAbsolutePath());
-
     }
 
 }
